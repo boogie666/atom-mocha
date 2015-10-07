@@ -1,9 +1,34 @@
-// The ui-variables file is provided by base themes provided by Atom.
-//
-// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
-// for a full listing of what's available.
+
 @import "ui-variables";
 
 .atom-mocha {
     min-width: 300px;
+    -webkit-user-select: none;
+}
+.scroll-container{
+    position: relative;
+    height: 90vh;
+}
+.scroll-panel{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+}
+
+.results-panel{
+    width: 100%;
+
+    height: 9vh;
+}
+.passed{
+    color : green;
+}
+.failed{
+    color : red;
+}
+.pending{
+    color : blue;
 }

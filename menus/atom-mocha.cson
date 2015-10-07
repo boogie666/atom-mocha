@@ -6,6 +6,18 @@
       'command': 'atom-mocha:toggle'
     }
   ]
+  # '.tree-view .directory' : [
+  #     {
+  #         'label': 'Run Tests'
+  #         'command': 'atom-mocha:runTestFolder'
+  #     }
+  # ]
+  '.tree-view .file .name[data-name$=\\.js]' : [
+      {
+          'label': 'Run Test'
+          'command': 'atom-mocha:runTestFile'
+      }
+  ]
 'menu': [
   {
     'label': 'Packages'

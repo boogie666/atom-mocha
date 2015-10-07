@@ -4,16 +4,15 @@
   "version": "0.0.0",
   "description": "A short description of your package",
   "keywords": [],
-  "activationCommands": {
-    "atom-workspace": "atom-mocha:toggle"
-  },
   "repository": "https://github.com/atom/atom-mocha",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+    "immutable": "^3.7.5",
     "mocha": "^2.3.3",
+    "normalizr": "^1.0.0",
     "react": "^0.13.3",
     "redux": "^3.0.2"
   },

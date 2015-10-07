@@ -1,40 +1,18 @@
 import {CompositeDisposable} from "atom";
 import AtomMochaView from "./atom-mocha-view";
-import Mocha, {Runner, Suite, Context} from "mocha";
-import configureStore from "./store/configureStore";
+import Runtime from "./runtime";
+import {createStore} from "redux";
+import reducer from "./reducers";
 
-const createId = (function(){
-    var id = 0;
-    return function(){
-        return id++;
-    };
-}());
-
-var store = configureStore();
-var mocha = new Mocha();
-mocha.reporter(function (runner){
-    runner.on("test", function(test){
-        console.warn('test',test.title, test);
-    });
-    runner.on("test end", function(test){
-    });
-    runner.on("suite", function(suite){
-        suite.id = createId();
-        store.dispatch({ type : "ADD_SUITE", suite : suite});
-        console.warn("suite", suite.title);
-    });
-});
-function runMocha(file){
-    store.dispatch({ type : "RESET" });
-    mocha.addFile(file);
-    mocha.run();
-}
+const store = createStore(reducer);
+const runtime = new Runtime(store);
 
 export default {
   atomMochaView: null,
   modalPanel: null,
   subscriptions: null,
   activate(state) {
+    const that = this;
     this.atomMochaView = new AtomMochaView(state.atomMochaViewState, store);
     this.modalPanel = atom.workspace.addRightPanel({
       item: this.atomMochaView.getElement(),
@@ -44,8 +22,14 @@ export default {
     this.subscriptions.add(atom.commands.add('atom-workspace', {
       'atom-mocha:toggle': ()=> this.toggle()
     }));
-    this.subscriptions.add(atom.commands.add('atom-workspace', {
-      'atom-mocha:run-tests': ()=> this.runTests()
+    this.subscriptions.add(atom.commands.add('.tree-view .file .name', {
+        'atom-mocha:runTestFile': function(e){
+            that.modalPanel.show();
+            const filePath = this.getAttribute("data-path");
+            runtime.clearFiles();
+            runtime.addFile(filePath);
+            runtime.start();
+        }
     }));
 
   },
@@ -65,10 +49,6 @@ export default {
     } else {
       return this.modalPanel.show();
     }
-  },
-  runTests() {
-      console.warn("running tests")
-      runMocha(atom.project.getPaths()[0] + "\\test\\simpleTest.js");
   }
 
 };

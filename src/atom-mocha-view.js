@@ -1,8 +1,6 @@
 import React from "react";
-import Mocha from "./mocha/Mocha";
+import Mocha from "./containers/Mocha";
 import { Provider } from 'react-redux';
-
-
 
 export default class AtomMochaView{
     constructor(state, store){

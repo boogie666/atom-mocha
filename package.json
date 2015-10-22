@@ -10,6 +10,7 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+    "atom-space-pen-views": "^2.1.0",
     "immutable": "^3.7.5",
     "mocha": "^2.3.3",
     "normalizr": "^1.0.0",

@@ -3,7 +3,7 @@ import makeSuite from "../utils/make-suites";
 
 export default function connect(runner){
     runner.once("suite", s => {
-        s.title="Tests";
+        s.title="All";
         begin(makeSuite(s));
     });
     runner.on("test",  test =>{

@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import {fromJS, Map, List} from "immutable";
 import {Actions} from "./actions";
 
 function identity(defaultValue){
@@ -8,7 +7,21 @@ function identity(defaultValue){
     };
 }
 
-const suites = identity({});
+function toggleSuite(suites, id){
+    const suite = {...suites[id]};
+    suite.toggleState = suite.toggleState === "collapsed" ? "expaned" : "collapsed";
+    const result = { ...suites };
+    result[id] = suite;
+    return result;
+}
+
+function suites(suites = {}, action){
+    if(action.type === Actions.TOGGLE_SUITE){
+        return toggleSuite(suites, action.suite);
+    }
+
+    return suites;
+}
 
 function updateTestStatus(tests, id, status){
     const test = {...tests[id]};
@@ -18,7 +31,7 @@ function updateTestStatus(tests, id, status){
     return result;
 }
 
-function tests(tests = Map(), action){
+function tests(tests = {}, action){
     if(action.type === Actions.BEGIN_TEST){
         const {id} = action.test;
         return updateTestStatus(tests, id, "pending");

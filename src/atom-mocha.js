@@ -15,7 +15,7 @@ export default {
     const that = this;
     this.atomMochaView = new AtomMochaView(state.atomMochaViewState, store);
     this.modalPanel = atom.workspace.addRightPanel({
-      item: this.atomMochaView.getElement(),
+      item: this.atomMochaView,
       visible: false
     });
     this.subscriptions = new CompositeDisposable();

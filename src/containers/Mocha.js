@@ -1,81 +1,110 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import {toggleSuite} from "../actions";
 
 class Test extends Component{
     render(){
         const {testId, byId} = this.props;
         const test = byId("tests", testId);
         return (
-            <div className={ "test " + this.getColor(test) }>{test.title}</div>
+            <li className={ "list-item " + this.getColor(test) }>{test.title}</li>
         );
     }
-    getColor(test){
-        return test.status;
+    getColor({status}){
+        if(status === "passed"){
+            return "text-success";
+        }
+        if(status === "failed"){
+            return "text-error";
+        }
+        return "text-subtle";
     }
 }
 
-class Suite extends Component{
+class ItemCount extends Component{
     render(){
-        const {suiteId, byId} = this.props;
+        const passedTests = this.countTests("passed", this.props.suite);
+        const failedTests = this.countTests("failed", this.props.suite);
+        const pendingTests = this.countTests("pending", this.props.suite);
+        return (
+            <span>
+                {this.renderCounter("success", passedTests)}
+                {this.renderCounter("error", failedTests)}
+                {this.renderCounter("subtle", pendingTests)}
+            </span>
+        );
+    }
+    renderCounter(type, count){
+        return count === 0 ? null : <span className={"badge badge-small badge-" + type}>{count}</span>
+    }
+
+    countTests(status, suiteId){
+        const byId = this.props.byId;
         const suite = byId("suites", suiteId);
         const suites = suite.suites || [];
         const tests = suite.tests || [];
 
+        var result = 0;
+        var currentTest = null;
+        for(var i = 0; i < tests.length; i++){
+            currentTest = byId("tests", tests[i]);
+            result += status === currentTest.status ? 1 : 0;
+        }
+        for(var j = 0; j < suites.length; j++){
+            result += this.countTests(status, suites[j]);
+        }
+        return result;
+    }
+}
+
+class Suite extends Component{
+    render() {
+        const {suiteId, byId, toggleItem} = this.props;
+        const suite = byId("suites", suiteId);
+        const suites = suite.suites || [];
+        const tests = suite.tests || [];
         return (
-            <div className="suite">
-                <h4>{suite.title}</h4>
-                <ul>
-                    { tests.map( test => <li key={test}><Test testId={test} byId={byId}/></li>) }
-                    { suites.map( suite => <li key={suite}><Suite suiteId={suite} byId={byId}/></li>) }
+            <li className={"list-nested-item " + suite.toggleState}>
+                <div onClick={()=>toggleItem(suiteId)} className="list-item">
+                    {suite.title} <ItemCount suite={suiteId} byId={byId} />
+                </div>
+                <ul className="list-tree">
+                    { tests.map( test => <Test key={test} testId={test} byId={byId}/>) }
+                    <li className="list-item">
+                        { suites.map( suite => <Suite key={suite} suiteId={suite} byId={byId} toggleItem={toggleItem}/>) }
+                    </li>
                 </ul>
-            </div>
+            </li>
         )
     }
+
 }
 
 class Mocha extends Component{
     render(){
-        const {result, entities} = this.props;
+        const {result, entities, dispatch} = this.props;
         const {tests} = entities;
         const byId = (type, id) => {
             return entities[type][id];
         };
+
         return (
-            <div>
-                <div className="scroll-container tool-panel">
-                    <div className="scroll-panel">
-                        { result.map( suite => <Suite key={suite} suiteId={suite} byId={ byId }/> ) }
+            <atom-panel className="top scroll-panel">
+                <div className="inset-panel">
+                    <div className="panel-heading">Tests</div>
+                    <div className="panel-body padded">
+                        <ul className="list-tree has-collapsable-children">
+                            { result.map( suite => <Suite key={suite} suiteId={suite} byId={ byId } toggleItem={ (suiteId)=> this.toggleItem(suiteId) }/> ) }
+                        </ul>
                     </div>
                 </div>
-                <div className="results-panel">
-                    { this.renderResult(tests, "Passed", "passed", this.getPassed) }
-                    { this.renderResult(tests, "Failed", "failed", this.getFailed) }
-                    { this.renderResult(tests, "Pending", "pending", this.getPending) }
-                </div>
-
-            </div>
-        );
-    }
-    getPassed(test){
-        return test.status === "passed"  ? 1 : 0;
-    }
-    getFailed(test){
-        return test.status === "failed" ? 1 : 0;
-    }
-    getPending(test){
-        return test.status === "pending" ? 1 : 0;
-    }
-    renderResult(tests, label, color, valueCalculator){
-        const count = Object.keys(tests).reduce((total, key) => {
-            return total + valueCalculator(tests[key]);
-        }, 0);
-        return (
-            <div className={ "results " + color}>
-                <h4>{label}: {count}</h4>
-            </div>
+            </atom-panel>
         );
     }
 
+    toggleItem(suite){
+        toggleSuite(this.props, { suite });
+    }
 }
 
 export default connect( (state)=>state )(Mocha);

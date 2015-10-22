@@ -15,7 +15,4 @@ export default class AtomMochaView{
     destroy() {
         return this.element.remove();
     }
-    getElement(){
-        return this.element;
-    }
 }

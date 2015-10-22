@@ -1,5 +1,3 @@
-
-
 export default function makeSuite(s, idGenerator){
     if(!idGenerator){
         idGenerator = (function(){
@@ -20,6 +18,7 @@ export default function makeSuite(s, idGenerator){
     const suites = s.suites.map((suite) => makeSuite(suite, idGenerator));
     const suite = {
         id : suiteId,
+        toggleState : "collapsed",
         title : s.title,
         tests : tests,
         suites : suites

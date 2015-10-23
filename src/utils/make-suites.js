@@ -1,4 +1,4 @@
-export default function makeSuite(s, idGenerator){
+export default function makeSuite(s, idGenerator, parent = null){
     if(!idGenerator){
         idGenerator = (function(){
             var id = 0;
@@ -12,17 +12,21 @@ export default function makeSuite(s, idGenerator){
         return {
             id : testId,
             title : test.title,
-            status : "pending"
+            status : "pending",
+            parent : suiteId
         };
     });
-    const suites = s.suites.map((suite) => makeSuite(suite, idGenerator));
+    const suites = s.suites.map((suite) => makeSuite(suite, idGenerator, suiteId));
     const suite = {
         id : suiteId,
         toggleState : "collapsed",
         title : s.title,
         tests : tests,
-        suites : suites
+        suites : suites,
+        parent : parent,
+        status : "pending"
     };
+
     s.id = suiteId;
     return suite;
 }

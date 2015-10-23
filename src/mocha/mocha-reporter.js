@@ -1,18 +1,20 @@
-import {begin, startTest, finishTest, done} from "./process-actions";
+import {begin, suiteEnd, startTest, passTest, failTest, done} from "./process-actions";
+import Base from "mocha/lib/reporters/base";
 import makeSuite from "../utils/make-suites";
 
-export default function connect(runner){
+export default function(runner){
+    Base.call(this, runner);
+
     runner.once("suite", s => {
         s.title="All";
         begin(makeSuite(s));
     });
-    runner.on("test",  test =>{
-        startTest(test);
-    });
-    runner.on("test end",  test =>{
-        finishTest(test);
-    });
-    runner.on("end",() =>{
-        done();
+    runner.on("suite end", suiteEnd);
+    runner.on("test", startTest);
+    runner.on("pass",  passTest);
+    runner.on("fail", failTest);
+
+    runner.on("end",() => {
+        done(this);
     });
 }

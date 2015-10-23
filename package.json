@@ -11,13 +11,16 @@
   },
   "dependencies": {
     "atom-space-pen-views": "^2.1.0",
+    "error-stack-parser": "^1.2.3",
     "immutable": "^3.7.5",
     "mocha": "^2.3.3",
+    "moment": "^2.10.6",
     "normalizr": "^1.0.0",
     "react": "^0.13.3",
     "redux": "^3.0.2"
   },
   "devDependencies": {
+    "chai": "^3.4.0",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
     "gulp-concat": "^2.6.0",

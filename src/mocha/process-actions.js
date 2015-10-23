@@ -1,8 +1,19 @@
+import ErrorStackParser from "error-stack-parser";
+
 export function begin(data){
     process.send({
         message : "BEGIN",
         data : data
     });
+}
+
+export function suiteEnd(suite){
+    process.send({
+        message : "SUITE_END",
+        data : {
+            id : suite.id
+        }
+    })
 }
 
 export function startTest(test){
@@ -14,7 +25,7 @@ export function startTest(test){
     });
 }
 
-export function finishTest(test){
+export function passTest(test){
     process.send({
         message : "END_TEST",
         data : {
@@ -24,8 +35,25 @@ export function finishTest(test){
     });
 }
 
-export function done(){
+export function failTest(test, error){
     process.send({
-        message : "END"
+        message : "END_TEST",
+        data : {
+            id : test.id,
+            state : test.state,
+            error : {
+                message : error.message,
+                stack : ErrorStackParser.parse(error)
+            }
+        }
+    });
+}
+
+export function done(data){
+    process.send({
+        message : "END",
+        data : {
+            stats : data.stats
+        }
     });
 }

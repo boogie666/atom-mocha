@@ -18,6 +18,6 @@ process.on("uncaughtException", function(error){
 process.send({
     messaege : "INIT",
     files : files
-})
+});
 require("babel/register");
 mocha.run();

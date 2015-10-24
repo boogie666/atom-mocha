@@ -52,10 +52,10 @@ class Test extends PureComponent{
     }
     getColor({status}){
         if(status === "passed"){
-            return "text-success";
+            return "text-success icon-check";
         }
         if(status === "failed"){
-            return "text-error";
+            return "text-error icon-x";
         }
         return "text-subtle";
     }
@@ -82,13 +82,13 @@ export default class Suite extends PureComponent{
 
     determineTitleColor(suite){
         if(suite.status === "partial"){
-            return "text-warning";
+            return "text-warning icon-primitive-dot";
         }
         if(suite.status === "failed"){
-            return "text-error";
+            return "text-error icon-x";
         }
         if(suite.status === "passed"){
-            return "text-success";
+            return "text-success icon-check";
         }
         return "";
     }

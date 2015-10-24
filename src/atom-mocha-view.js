@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import Mocha from "./containers/Mocha";
 import { Provider } from 'react-redux';
 
@@ -6,9 +7,9 @@ export default class AtomMochaView{
     constructor(state, store){
         this.element = document.createElement('div');
         this.element.classList.add('atom-mocha');
-        React.render(
+        ReactDOM.render(
             <Provider store={store}>
-                {() => <Mocha />}
+                <Mocha />
             </Provider>, this.element);
     }
     serialize(){}

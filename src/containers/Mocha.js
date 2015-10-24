@@ -47,16 +47,19 @@ class ItemCount extends Component{
 
 class StatsView extends Component{
     render(){
-        const {stats, byId} = this.props;
+        const {stats,suites, tests, byId} = this.props;
         return (
             <div>
                 <ItemCount suite={0} byId={byId} />
-                <span>{ this.getDuration(stats) }</span>
+                <span>{ this.getDuration(suites, tests, stats) }</span>
             </div>
         );
     }
 
-    getDuration(stats){
+    getDuration(suites, tests, stats){
+        if(!Object.keys(suites).length || !Object.keys(tests).length){
+            return null;
+        }
         if(!stats){
             return <span className='loading loading-spinner-tiny inline-block'></span>;
         }
@@ -67,20 +70,20 @@ class StatsView extends Component{
 class Mocha extends Component{
     render(){
         const {result, entities, dispatch, stats} = this.props;
-        const {tests} = entities;
+        const {suites, tests} = entities;
         const byId = (type, id) => {
             return entities[type][id];
         };
         const noTestsMessage = this.getNoTestsMessage(stats);
         return (
-            <atom-panel className="top scroll-panel">
+            <atom-panel class="top scroll-panel">
                 <div className="inset-panel">
                     <div className="panel-heading">
                         <div className="inline-block">
                             Tests
                         </div>
                         <div className="inline-block" style={ {float : "right"} }>
-                            <StatsView stats={stats} byId={byId}/>
+                            <StatsView stats={stats} suites={suites} tests={tests} byId={byId}/>
                         </div>
                     </div>
                     <div className="panel-body padded">

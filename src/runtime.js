@@ -1,5 +1,4 @@
 import Mocha from "mocha";
-import {fromJS} from "immutable";
 import processor from "./utils/processor";
 import makeSuite from "./utils/make-suites";
 import {begin, done, endSuite, startTest, finishTest, restart} from "./actions";

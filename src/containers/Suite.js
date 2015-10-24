@@ -5,12 +5,12 @@ class TestError extends Component{
     render(){
         const {error} = this.props;
         return (
-            <atom-panel className='top'>
+            <atom-panel class='top'>
                 <div >
                     <div className="panel-heading">
                         <span className="text-error">{error.message}</span>
                     </div>
-                    <div className="panel-body">
+                    <div className="panel-body scroll-x">
                         {this.renderStackFrames(error.stack)}
                     </div>
                 </div>
@@ -70,9 +70,7 @@ export default class Suite extends Component{
                 </div>
                 <ul className="list-tree">
                     { tests.map( test => <Test key={test} testId={test} byId={byId}/>) }
-                    <li className="list-item">
-                        { suites.map( suite => <Suite key={suite} suiteId={suite} byId={byId} toggleItem={toggleItem}/>) }
-                    </li>
+                    { suites.map( suite => <Suite key={suite} suiteId={suite} byId={byId} toggleItem={toggleItem}/>) }
                 </ul>
             </li>
         )

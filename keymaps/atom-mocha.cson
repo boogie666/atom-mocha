@@ -7,6 +7,8 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
-# 'atom-workspace':
-#   'ctrl-alt-t': 'atom-mocha:toggle'
-#   'ctrl-alt-o': 'atom-mocha:run-tests'
+'atom-workspace':
+  'ctrl-alt-t': 'atom-mocha:toggle'
+  'ctrl-shift-r' : 'atom-mocha:rerunTests'
+'atom-text-editor':
+  'ctrl-shift-t' : 'atom-mocha:runTestFileFromEditor'

@@ -3,7 +3,7 @@ import PureComponent from "../utils/PureComponent";
 
 class TestError extends PureComponent{
     render(){
-        const {error} = this.props;
+        const {error, action} = this.props;
         return (
             <atom-panel class='top'>
                 <div >
@@ -11,15 +11,19 @@ class TestError extends PureComponent{
                         <span className="text-error">{error.message}</span>
                     </div>
                     <div className="panel-body scroll-x">
-                        {this.renderStackFrames(error.stack)}
+                        {this.renderStackFrames(error.stack, action)}
                     </div>
                 </div>
             </atom-panel>
         )
     }
-    renderStackFrames(stack){
+    renderStackFrames(stack, action){
         const stackFrames = stack.map((frame, i) => {
-            return <li key={i} className="list-item">{frame.source}</li>
+            return (
+                <li key={i} className="list-item text-subtle">
+                    <a onClick={()=>action(frame)} className="text-subtle">{frame.source}</a>
+                </li>
+            );
         });
         return (
             <ul className='list-group'>
@@ -31,20 +35,20 @@ class TestError extends PureComponent{
 
 class Test extends PureComponent{
     render(){
-        const {testId, byId} = this.props;
+        const {testId, byId, action} = this.props;
         const test = byId("tests", testId);
         return (
-            <li className={ "list-item " + this.getColor(test) }>
-                <div>{test.title}</div>
-                <div>{this.getErrorInfo(test.error)}</div>
+            <li className="list-item">
+                <div className={this.getColor(test)}>{test.title}</div>
+                <div>{this.getErrorInfo(test.error, action)}</div>
             </li>
         );
     }
-    getErrorInfo(error) {
+    getErrorInfo(error, action) {
         if(!error){
             return null;
         }
-        return <TestError error={error} />;
+        return <TestError error={error} action={action}/>;
     }
     getColor({status}){
         if(status === "passed"){
@@ -59,8 +63,7 @@ class Test extends PureComponent{
 
 export default class Suite extends PureComponent{
     render() {
-        console.log(this);
-        const {suiteId, byId, toggleItem} = this.props;
+        const {suiteId, byId, toggleItem, action} = this.props;
         const suite = byId("suites", suiteId);
         const suites = suite.suites || [];
         const tests = suite.tests || [];
@@ -70,8 +73,8 @@ export default class Suite extends PureComponent{
                     <span className={this.determineTitleColor(suite, tests, byId)}>{suite.title}</span>
                 </div>
                 <ul className="list-tree">
-                    { tests.map( test => <Test key={test} testId={test} byId={byId}/>) }
-                    { suites.map( suite => <Suite key={suite} suiteId={suite} byId={byId} toggleItem={toggleItem}/>) }
+                    { tests.map( test => <Test key={test} testId={test} byId={byId} action={action}/>) }
+                    { suites.map( suite => <Suite key={suite} suiteId={suite} byId={byId} toggleItem={toggleItem} action={action}/>) }
                 </ul>
             </li>
         )

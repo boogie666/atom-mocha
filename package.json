@@ -13,7 +13,6 @@
     "babel": "^5.8.23",
     "error-stack-parser": "^1.2.3",
     "mocha": "^2.3.3",
-    "moment": "^2.10.6",
     "normalizr": "^1.0.0",
     "react": "^0.14.0",
     "react-addons-pure-render-mixin": "^0.14.0",

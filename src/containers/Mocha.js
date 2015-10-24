@@ -3,7 +3,6 @@ import PureComponent from "../utils/PureComponent";
 import Suite from "./Suite";
 import {connect} from "react-redux";
 import {toggleSuite} from "../actions";
-import moment from "moment";
 
 
 class ItemCount extends PureComponent{
@@ -70,7 +69,7 @@ class StatsView extends PureComponent{
 
 class Mocha extends PureComponent{
     render(){
-        const {result, entities, dispatch, stats} = this.props;
+        const {result, entities, dispatch, stats, action, restartTests} = this.props;
         const {suites, tests} = entities;
         const byId = (type, id) => {
             return entities[type][id];
@@ -81,7 +80,7 @@ class Mocha extends PureComponent{
                 <div className="inset-panel">
                     <div className="panel-heading">
                         <div className="inline-block">
-                            Tests
+                            {this.renderTitle(stats, restartTests)}
                         </div>
                         <div className="inline-block" style={ {float : "right"} }>
                             <StatsView stats={stats} suites={suites} tests={tests} byId={byId}/>
@@ -90,14 +89,20 @@ class Mocha extends PureComponent{
                     <div className="panel-body padded">
                         {noTestsMessage}
                         <ul className="list-tree has-collapsable-children">
-                            { result.map( suite => <Suite key={suite} suiteId={suite} byId={ byId } toggleItem={ (suiteId)=> this.toggleItem(suiteId) }/> ) }
+                            { result.map( suite => <Suite key={suite} suiteId={suite} byId={ byId } toggleItem={ (suiteId)=> this.toggleItem(suiteId) } action={action}/> ) }
                         </ul>
                     </div>
                 </div>
             </atom-panel>
         );
     }
+    renderTitle(stats, restartTests){
+        if(!stats){
+            return <span>Tests</span>;
+        }
 
+        return <a onClick={restartTests}><span className="icon-sync">Re-run Tests</span></a>
+    }
     toggleItem(suite){
         toggleSuite(this.props, { suite });
     }

@@ -146,7 +146,7 @@ describe("A test", function(){
     });
 
     it("should fail", function(){
-        throw new Error();
+        throw new Error("With this error message");
     });
     describe("with nested stuff", function(){
         it("passes", function(){

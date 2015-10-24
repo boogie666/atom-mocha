@@ -1,11 +1,12 @@
-import React, {Component} from "react";
+import React from "react";
+import PureComponent from "../utils/PureComponent";
 import Suite from "./Suite";
 import {connect} from "react-redux";
 import {toggleSuite} from "../actions";
 import moment from "moment";
 
 
-class ItemCount extends Component{
+class ItemCount extends PureComponent{
     render(){
         const passedTests = this.countTests("passed", this.props.suite);
         const failedTests = this.countTests("failed", this.props.suite);
@@ -45,7 +46,7 @@ class ItemCount extends Component{
 }
 
 
-class StatsView extends Component{
+class StatsView extends PureComponent{
     render(){
         const {stats,suites, tests, byId} = this.props;
         return (
@@ -67,7 +68,7 @@ class StatsView extends Component{
     }
 }
 
-class Mocha extends Component{
+class Mocha extends PureComponent{
     render(){
         const {result, entities, dispatch, stats} = this.props;
         const {suites, tests} = entities;

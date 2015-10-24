@@ -16,6 +16,7 @@
     "moment": "^2.10.6",
     "normalizr": "^1.0.0",
     "react": "^0.14.0",
+    "react-addons-pure-render-mixin": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-redux": "^4.0.0",
     "redux": "^3.0.2"

@@ -1,7 +1,7 @@
-import React, {Component} from "react";
+import React from "react";
+import PureComponent from "../utils/PureComponent";
 
-
-class TestError extends Component{
+class TestError extends PureComponent{
     render(){
         const {error} = this.props;
         return (
@@ -29,7 +29,7 @@ class TestError extends Component{
     }
 }
 
-class Test extends Component{
+class Test extends PureComponent{
     render(){
         const {testId, byId} = this.props;
         const test = byId("tests", testId);
@@ -57,8 +57,9 @@ class Test extends Component{
     }
 }
 
-export default class Suite extends Component{
+export default class Suite extends PureComponent{
     render() {
+        console.log(this);
         const {suiteId, byId, toggleItem} = this.props;
         const suite = byId("suites", suiteId);
         const suites = suite.suites || [];

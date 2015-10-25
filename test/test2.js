@@ -1,36 +1,43 @@
-describe("Some other test", ()=>{
-    it("is going to fail", ()=>{
-        throw new Error("The test has failed");
-    });
-    it("is going to be ok", ()=>{
-    });
-});
-describe("Some other test", ()=>{
-    describe("Some other test", ()=>{
-        it("is going to fail", ()=>{
+
+function aFailedSuite(){
+    describe("All failes", ()=>{
+        it("fail", ()=>{
             throw new Error("The test has failed");
         });
-        it("is going to be ok", (done)=>{
-            setTimeout(done, 1000);
+        it("fail", ()=>{
+            throw new Error("The test has failed");
         });
     });
-    it("is going to fail", ()=>{
+}
+function aPassedSuite(){
+    describe("All Pass", ()=>{
+        it("pass", ()=>{
+        });
+        it("pass", ()=>{
+        });
     });
-    it("is going to be ok", ()=>{
+}
+
+function aPartialSuite(){
+    describe("Partial Pass", ()=>{
+        it("pass", ()=>{
+            throw new Error("The test has failed");
+        });
+        it("pass", ()=>{
+        });
     });
-});
-describe("Some other test", ()=>{
-    it("is going to fail", ()=>{
-        throw new Error("The test has failed");
-    });
-    it("is going to be ok", ()=>{
-    });
-});
-describe("Some other test", ()=>{
-    it("is going to fail", ()=>{
-        throw new Error("The test has failed");
-    });
-    it("is going to be ok", ()=>{
-        throw new Error("The test has failed");
-    });
-});
+}
+
+function aMixedSuite(name, ...suites){
+    describe(name, ()=>{
+        suites.forEach((suite)=>{ suite(); });
+    })
+}
+
+aFailedSuite();
+aPassedSuite();
+aPartialSuite();
+aMixedSuite("A Mix", aPassedSuite, aFailedSuite);
+aMixedSuite("All Pass", aPassedSuite, aPassedSuite);
+aMixedSuite("All Failed", aFailedSuite, aFailedSuite);
+aMixedSuite("A pass, a fail and a partial", aPassedSuite, aFailedSuite, aPartialSuite);

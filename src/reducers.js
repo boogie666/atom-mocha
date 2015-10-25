@@ -82,37 +82,39 @@ function count(what){
     };
 }
 
-function determineStatus(suite, tests, suites){
-
-    const testStatus = {
-        failed : tests.reduce(count("failed"), 0),
-        passed : tests.reduce(count("passed"), 0)
-    };
-    if(testStatus.failed > 0 && testStatus.passed === 0){
+function hasFailed(stuff){
+    return stuff.failed > 0;
+}
+function hasPassed(stuff){
+    return stuff.passed > 0;
+}
+function determinePassOrFail(stuff){
+    if(hasFailed(stuff) && !hasPassed(stuff)){
         return "failed";
     }
-    if(testStatus.failed === 0 && testStatus.passed > 0){
+
+    if(!hasFailed(stuff) && hasPassed(stuff)){
         return "passed";
     }
-    if(testStatus.failed > 0 && testStatus.passed > 0){
-        return "partial";
-    }
-    
+    return null;
+}
+function determineStatus(suite, tests, suites){
+
     const suiteStatus = {
         partial : suites.reduce(count("partial"), 0),
         failed : suites.reduce(count("failed"), 0),
         passed : suites.reduce(count("passed"), 0)
     };
-    if(suiteStatus.partial > 0){
+    const testStatus = {
+        failed : tests.reduce(count("failed"), 0),
+        passed : tests.reduce(count("passed"), 0)
+    };
+
+    if(suites.partial){
         return "partial";
     }
-    if(suiteStatus.failed > 0 && suiteStatus.passed === 0){
-        return "failed";
-    }
-    if(suiteStatus.failed === 0 && suiteStatus.passed > 0){
-        return "passed";
-    }
-    return "partial";
+
+    return determinePassOrFail(testStatus) || determinePassOrFail(suiteStatus) ||  "partial";
 }
 function updateSuiteStatus(suites, tests, id){
     const suite = {...suites[id]};

@@ -1,10 +1,10 @@
 describe("A test 1", function(){
     it("should pass", function(){
     });
-
-    it("should fail", function(){
-        throw new Error();
-    });
+    // 
+    // it("should fail", function(){
+    //     throw new Error();
+    // });
     describe("with nested stuff", function(){
         it("passes", function(){
 

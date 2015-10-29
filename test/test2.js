@@ -20,7 +20,7 @@ function aPassedSuite(){
 
 function aPartialSuite(){
     describe("Partial Pass", ()=>{
-        it("pass", ()=>{
+        it("fail", ()=>{
             throw new Error("The test has failed");
         });
         it("pass", ()=>{

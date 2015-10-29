@@ -1,17 +1,18 @@
 import Mocha from "mocha";
-import processor from "./utils/processor";
-import makeSuite from "./utils/make-suites";
-import {begin, done, endSuite, startTest, finishTest, restart} from "./actions";
+import processor from "../utils/processor";
+import makeSuite from "../utils/make-suites";
+import {begin, done, endSuite, startTest, finishTest, restart} from "../actions";
 import process from "child_process";
+import AbstractRuntime from "../AbstractRuntime";
 
-export default class Runtime{
+export default class MochaRuntime extends AbstractRuntime{
     constructor(store){
+        super();
         this.store = store;
-        this.files = [];
     }
     start(){
         const {store, files} =  this;
-        const mocha = process.fork(__dirname + '/../lib/mocha/mocha-process.js', this.files);
+        const mocha = process.fork(__dirname + '/../../lib/mocha/mocha-process.js', this.files);
 
         restart(store);
         mocha.on("message", function(action){

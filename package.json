@@ -14,6 +14,7 @@
     "error-stack-parser": "^1.2.3",
     "mocha": "^2.3.3",
     "normalizr": "^1.0.0",
+    "qunitjs": "^1.19.0",
     "react": "^0.14.0",
     "react-addons-pure-render-mixin": "^0.14.0",
     "react-dom": "^0.14.0",

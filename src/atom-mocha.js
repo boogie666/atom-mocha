@@ -1,11 +1,11 @@
 import {CompositeDisposable} from "atom";
 import AtomMochaView from "./atom-mocha-view";
-import Runtime from "./runtime";
+import MochaRuntime from "./mocha";
 import {createStore} from "redux";
 import reducer from "./reducers";
 
 const store = createStore(reducer);
-const runtime = new Runtime(store);
+const runtime = new MochaRuntime(store);
 
 export default {
   atomMochaView: null,

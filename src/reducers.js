@@ -23,20 +23,6 @@ function expand(suites, id = null){
     return expand(updateSuiteToggleState(suites, id, "expanded"), suite.parent);
 }
 
-function expandParents(state, testId){
-    const {tests, suites} = state.entities;
-    const test = tests[testId];
-    if(test.status === "failed"){
-        return {
-            ...state,
-            entities : {
-                suites : expand(suites, test.parent),
-                tests : tests
-            }
-        };
-    }
-    return state;
-}
 
 function toggleSuite(suites, id){
     const state = suites[id].toggleState;
@@ -130,21 +116,9 @@ function updateSuiteStatus(suites, tests, id){
     return result;
 }
 
-function setSuiteStatus(state, suite){
-    const {id} = suite;
-    const {suites, tests} = state.entities;
-    return {
-        ...state,
-        entities : {
-            suites : updateSuiteStatus(suites, tests, id),
-            tests : tests
-        }
-    }
-}
 
-const suitesAndTests = combineReducers( { suites, tests} );
 const entitiesAndResult = combineReducers({
-    entities : suitesAndTests,
+    entities : combineReducers( { suites, tests} ),
     result : identity([]),
     stats : identity(null)
 });
@@ -157,10 +131,51 @@ const initialState = {
     },
     result : []
 };
-export default function(state = initialState, action){
+
+function expandParents(state, action){
+    if(action.type !== Actions.END_TEST){
+        return state;
+    }
+    const {id} = action.test;
+    const {tests, suites} = state.entities;
+    const test = tests[id];
+    if(test.status === "failed"){
+        return {
+            ...state,
+            entities : {
+                suites : expand(suites, test.parent),
+                tests : tests
+            }
+        };
+    }
+    return state;
+}
+
+function setSuiteStatus(state, action){
+    if(action.type !== Actions.END_SUITE){
+        return state;
+    }
+
+    const {suite} = action;
+    const {id} = suite;
+    const {suites, tests} = state.entities;
+    return {
+        ...state,
+        entities : {
+            suites : updateSuiteStatus(suites, tests, id),
+            tests : tests
+        }
+    }
+}
+
+function restart(state, action){
     if(action.type === Actions.RESTART){
         return initialState;
     }
+    return state;
+}
+
+function begin(state, action){
     if(action.type === Actions.BEGIN){
         const {result, entities} = action.data;
         return {
@@ -171,17 +186,23 @@ export default function(state = initialState, action){
             result : [...result]
         };
     }
+    return state;
+}
 
+function attachStats(state, action){
     if(action.type === Actions.END){
         const {stats} = action.data;
         return { ...state, stats };
     }
-    if(action.type === Actions.END_TEST){
-        const {status, id} = action.test;
-        return expandParents(entitiesAndResult(state, action), id);
+    return state;
+}
+
+function pipeReducers(...fns){
+    return function(state = initialState, action){
+        return fns.reduce(function(state, fn){
+            return fn(state, action);
+        }, state);
     }
-    if(action.type === Actions.END_SUITE){
-        return setSuiteStatus(entitiesAndResult(state, action), action.suite);
-    }
-    return entitiesAndResult(state, action);
-};
+}
+
+export default pipeReducers(restart,begin, attachStats, entitiesAndResult, setSuiteStatus, expandParents);

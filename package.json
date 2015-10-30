@@ -1,10 +1,10 @@
 {
   "name": "atom-mocha",
   "main": "./lib/atom-mocha",
-  "version": "0.0.0",
-  "description": "A short description of your package",
+  "version": "0.1.0",
+  "description": "Mocha testrunner for atom",
   "keywords": [],
-  "repository": "https://github.com/atom/atom-mocha",
+  "repository": "https://github.com/boogie666/atom-mocha.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"

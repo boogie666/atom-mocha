@@ -60,16 +60,18 @@ You: hmm, not bad. But how do I install it?
 
 Me: Glad you asked.
 
-For now installation is a bit trickier then regular packages, since its not published.
+~~For now installation is a bit trickier then regular packages, since its not published.~~
 
-    cd <somewhere where you want to have the package>
-    git clone https://github.com/boogie666/atom-mocha.git
-    cd atom-mocha
-    apm install
+~~cd <somewhere where you want to have the package>~~
+~~git clone https://github.com/boogie666/atom-mocha.git~~
+~~cd atom-mocha~~
+~~apm install~~
 
-And you should be good.
+~~And you should be good.~~
 
-Me: I hope to get the package published soon, just as soon as I figure out how :)
+~~Me: I hope to get the package published soon, just as soon as I figure out how :)~~
+
+It's the regular way now :)
 
 # Contributing
 

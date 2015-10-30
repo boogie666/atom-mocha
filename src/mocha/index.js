@@ -4,6 +4,7 @@ import makeSuite from "../utils/make-suites";
 import {begin, done, endSuite, startTest, finishTest, restart, handleError} from "../actions";
 import process from "child_process";
 import AbstractRuntime from "../AbstractRuntime";
+import path from "path";
 
 export default class MochaRuntime extends AbstractRuntime{
     constructor(store){
@@ -12,7 +13,7 @@ export default class MochaRuntime extends AbstractRuntime{
     }
     start(){
         const {store, files} =  this;
-        const mochaPath = __dirname + '/../../lib/mocha/mocha-process.js';
+        const mochaPath = path.join(__dirname, 'mocha-process.js');
         const mocha =  process.fork(mochaPath, this.files, {
             slient : true
         }, {

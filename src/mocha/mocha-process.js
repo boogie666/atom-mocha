@@ -4,14 +4,7 @@ import ErrorStackParser from "error-stack-parser";
 
 const files = process.argv.concat();
 files.splice(0, 2);
-/**
-console.log(e.message);                // "missing ; before statement"
-  console.log(e.name);                   // "SyntaxError"
-  console.log(e.fileName);               // "Scratchpad/1"
-  console.log(e.lineNumber);             // 1
-  console.log(e.columnNumber);           // 4
-  console.log(e.stack);
-*/
+
 process.on('uncaughtException', (e)=>{
     process.send({
         message : "ERROR",

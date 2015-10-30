@@ -1,0 +1,21 @@
+{
+	"action": {
+		"type": "RESTART"
+	},
+	"input": {
+		"entities": {
+			"suites": {},
+			"tests": {}
+		},
+		"result": [],
+		"stats": null
+	},
+	"expected": {
+		"entities": {
+			"suites": {},
+			"tests": {}
+		},
+		"result": [],
+		"stats": null
+	}
+}

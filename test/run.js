@@ -1,2 +1,2 @@
 require("babel/register");
-require("./mocha_tests");
+require("../spec/generated-tests");

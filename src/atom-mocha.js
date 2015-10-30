@@ -3,6 +3,7 @@ import AtomMochaView from "./atom-mocha-view";
 import MochaRuntime from "./mocha";
 import {createStore} from "redux";
 import reducer from "./reducers";
+import {generateTest} from "./generateTest";
 
 const store = createStore(reducer);
 const runtime = new MochaRuntime(store);

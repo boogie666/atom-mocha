@@ -3,6 +3,7 @@ import PureComponent from "../utils/PureComponent";
 import Suite from "./Suite";
 import {connect} from "react-redux";
 import {toggleSuite} from "../actions";
+import {dataForTest, createTestFiles} from "../generateTest";
 
 
 class ItemCount extends PureComponent{

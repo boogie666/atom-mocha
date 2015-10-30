@@ -1,0 +1,1928 @@
+{
+	"action": {
+		"type": "START_TEST",
+		"test": {
+			"id": "36"
+		}
+	},
+	"input": {
+		"entities": {
+			"suites": {
+				"0": {
+					"id": "0",
+					"toggleState": "expanded",
+					"title": "All",
+					"tests": [],
+					"suites": [
+						"1",
+						"4",
+						"7",
+						"10",
+						"17",
+						"24",
+						"31"
+					],
+					"parent": null,
+					"status": "pending"
+				},
+				"1": {
+					"id": "1",
+					"toggleState": "expanded",
+					"title": "All failes",
+					"tests": [
+						"2",
+						"3"
+					],
+					"suites": [],
+					"parent": "0",
+					"status": "failed"
+				},
+				"4": {
+					"id": "4",
+					"toggleState": "collapsed",
+					"title": "All Pass",
+					"tests": [
+						"5",
+						"6"
+					],
+					"suites": [],
+					"parent": "0",
+					"status": "passed"
+				},
+				"7": {
+					"id": "7",
+					"toggleState": "expanded",
+					"title": "Partial Pass",
+					"tests": [
+						"8",
+						"9"
+					],
+					"suites": [],
+					"parent": "0",
+					"status": "partial"
+				},
+				"10": {
+					"id": "10",
+					"toggleState": "expanded",
+					"title": "A Mix",
+					"tests": [],
+					"suites": [
+						"11",
+						"14"
+					],
+					"parent": "0",
+					"status": "partial"
+				},
+				"11": {
+					"id": "11",
+					"toggleState": "collapsed",
+					"title": "All Pass",
+					"tests": [
+						"12",
+						"13"
+					],
+					"suites": [],
+					"parent": "10",
+					"status": "passed"
+				},
+				"14": {
+					"id": "14",
+					"toggleState": "expanded",
+					"title": "All failes",
+					"tests": [
+						"15",
+						"16"
+					],
+					"suites": [],
+					"parent": "10",
+					"status": "failed"
+				},
+				"17": {
+					"id": "17",
+					"toggleState": "collapsed",
+					"title": "All Pass",
+					"tests": [],
+					"suites": [
+						"18",
+						"21"
+					],
+					"parent": "0",
+					"status": "passed"
+				},
+				"18": {
+					"id": "18",
+					"toggleState": "collapsed",
+					"title": "All Pass",
+					"tests": [
+						"19",
+						"20"
+					],
+					"suites": [],
+					"parent": "17",
+					"status": "passed"
+				},
+				"21": {
+					"id": "21",
+					"toggleState": "collapsed",
+					"title": "All Pass",
+					"tests": [
+						"22",
+						"23"
+					],
+					"suites": [],
+					"parent": "17",
+					"status": "passed"
+				},
+				"24": {
+					"id": "24",
+					"toggleState": "expanded",
+					"title": "All Failed",
+					"tests": [],
+					"suites": [
+						"25",
+						"28"
+					],
+					"parent": "0",
+					"status": "failed"
+				},
+				"25": {
+					"id": "25",
+					"toggleState": "expanded",
+					"title": "All failes",
+					"tests": [
+						"26",
+						"27"
+					],
+					"suites": [],
+					"parent": "24",
+					"status": "failed"
+				},
+				"28": {
+					"id": "28",
+					"toggleState": "expanded",
+					"title": "All failes",
+					"tests": [
+						"29",
+						"30"
+					],
+					"suites": [],
+					"parent": "24",
+					"status": "failed"
+				},
+				"31": {
+					"id": "31",
+					"toggleState": "collapsed",
+					"title": "A pass, a fail and a partial",
+					"tests": [],
+					"suites": [
+						"32",
+						"35",
+						"38"
+					],
+					"parent": "0",
+					"status": "pending"
+				},
+				"32": {
+					"id": "32",
+					"toggleState": "collapsed",
+					"title": "All Pass",
+					"tests": [
+						"33",
+						"34"
+					],
+					"suites": [],
+					"parent": "31",
+					"status": "passed"
+				},
+				"35": {
+					"id": "35",
+					"toggleState": "collapsed",
+					"title": "All failes",
+					"tests": [
+						"36",
+						"37"
+					],
+					"suites": [],
+					"parent": "31",
+					"status": "pending"
+				},
+				"38": {
+					"id": "38",
+					"toggleState": "collapsed",
+					"title": "Partial Pass",
+					"tests": [
+						"39",
+						"40"
+					],
+					"suites": [],
+					"parent": "31",
+					"status": "pending"
+				}
+			},
+			"tests": {
+				"2": {
+					"id": "2",
+					"title": "fail",
+					"status": "failed",
+					"parent": "1",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 5,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:5:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"3": {
+					"id": "3",
+					"title": "fail",
+					"status": "failed",
+					"parent": "1",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 8,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:8:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"5": {
+					"id": "5",
+					"title": "pass",
+					"status": "passed",
+					"parent": "4"
+				},
+				"6": {
+					"id": "6",
+					"title": "pass",
+					"status": "passed",
+					"parent": "4"
+				},
+				"8": {
+					"id": "8",
+					"title": "fail",
+					"status": "failed",
+					"parent": "7",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 24,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:24:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"9": {
+					"id": "9",
+					"title": "pass",
+					"status": "passed",
+					"parent": "7"
+				},
+				"12": {
+					"id": "12",
+					"title": "pass",
+					"status": "passed",
+					"parent": "11"
+				},
+				"13": {
+					"id": "13",
+					"title": "pass",
+					"status": "passed",
+					"parent": "11"
+				},
+				"15": {
+					"id": "15",
+					"title": "fail",
+					"status": "failed",
+					"parent": "14",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 5,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:5:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"16": {
+					"id": "16",
+					"title": "fail",
+					"status": "failed",
+					"parent": "14",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 8,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:8:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"19": {
+					"id": "19",
+					"title": "pass",
+					"status": "passed",
+					"parent": "18"
+				},
+				"20": {
+					"id": "20",
+					"title": "pass",
+					"status": "passed",
+					"parent": "18"
+				},
+				"22": {
+					"id": "22",
+					"title": "pass",
+					"status": "passed",
+					"parent": "21"
+				},
+				"23": {
+					"id": "23",
+					"title": "pass",
+					"status": "passed",
+					"parent": "21"
+				},
+				"26": {
+					"id": "26",
+					"title": "fail",
+					"status": "failed",
+					"parent": "25",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 5,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:5:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"27": {
+					"id": "27",
+					"title": "fail",
+					"status": "failed",
+					"parent": "25",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 8,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:8:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"29": {
+					"id": "29",
+					"title": "fail",
+					"status": "failed",
+					"parent": "28",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 5,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:5:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"30": {
+					"id": "30",
+					"title": "fail",
+					"status": "failed",
+					"parent": "28",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 8,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:8:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"33": {
+					"id": "33",
+					"title": "pass",
+					"status": "passed",
+					"parent": "32"
+				},
+				"34": {
+					"id": "34",
+					"title": "pass",
+					"status": "passed",
+					"parent": "32"
+				},
+				"36": {
+					"id": "36",
+					"title": "fail",
+					"status": "pending",
+					"parent": "35"
+				},
+				"37": {
+					"id": "37",
+					"title": "fail",
+					"status": "pending",
+					"parent": "35"
+				},
+				"39": {
+					"id": "39",
+					"title": "fail",
+					"status": "pending",
+					"parent": "38"
+				},
+				"40": {
+					"id": "40",
+					"title": "pass",
+					"status": "pending",
+					"parent": "38"
+				}
+			}
+		},
+		"result": [
+			"0"
+		],
+		"stats": null
+	},
+	"expected": {
+		"entities": {
+			"suites": {
+				"0": {
+					"id": "0",
+					"toggleState": "expanded",
+					"title": "All",
+					"tests": [],
+					"suites": [
+						"1",
+						"4",
+						"7",
+						"10",
+						"17",
+						"24",
+						"31"
+					],
+					"parent": null,
+					"status": "pending"
+				},
+				"1": {
+					"id": "1",
+					"toggleState": "expanded",
+					"title": "All failes",
+					"tests": [
+						"2",
+						"3"
+					],
+					"suites": [],
+					"parent": "0",
+					"status": "failed"
+				},
+				"4": {
+					"id": "4",
+					"toggleState": "collapsed",
+					"title": "All Pass",
+					"tests": [
+						"5",
+						"6"
+					],
+					"suites": [],
+					"parent": "0",
+					"status": "passed"
+				},
+				"7": {
+					"id": "7",
+					"toggleState": "expanded",
+					"title": "Partial Pass",
+					"tests": [
+						"8",
+						"9"
+					],
+					"suites": [],
+					"parent": "0",
+					"status": "partial"
+				},
+				"10": {
+					"id": "10",
+					"toggleState": "expanded",
+					"title": "A Mix",
+					"tests": [],
+					"suites": [
+						"11",
+						"14"
+					],
+					"parent": "0",
+					"status": "partial"
+				},
+				"11": {
+					"id": "11",
+					"toggleState": "collapsed",
+					"title": "All Pass",
+					"tests": [
+						"12",
+						"13"
+					],
+					"suites": [],
+					"parent": "10",
+					"status": "passed"
+				},
+				"14": {
+					"id": "14",
+					"toggleState": "expanded",
+					"title": "All failes",
+					"tests": [
+						"15",
+						"16"
+					],
+					"suites": [],
+					"parent": "10",
+					"status": "failed"
+				},
+				"17": {
+					"id": "17",
+					"toggleState": "collapsed",
+					"title": "All Pass",
+					"tests": [],
+					"suites": [
+						"18",
+						"21"
+					],
+					"parent": "0",
+					"status": "passed"
+				},
+				"18": {
+					"id": "18",
+					"toggleState": "collapsed",
+					"title": "All Pass",
+					"tests": [
+						"19",
+						"20"
+					],
+					"suites": [],
+					"parent": "17",
+					"status": "passed"
+				},
+				"21": {
+					"id": "21",
+					"toggleState": "collapsed",
+					"title": "All Pass",
+					"tests": [
+						"22",
+						"23"
+					],
+					"suites": [],
+					"parent": "17",
+					"status": "passed"
+				},
+				"24": {
+					"id": "24",
+					"toggleState": "expanded",
+					"title": "All Failed",
+					"tests": [],
+					"suites": [
+						"25",
+						"28"
+					],
+					"parent": "0",
+					"status": "failed"
+				},
+				"25": {
+					"id": "25",
+					"toggleState": "expanded",
+					"title": "All failes",
+					"tests": [
+						"26",
+						"27"
+					],
+					"suites": [],
+					"parent": "24",
+					"status": "failed"
+				},
+				"28": {
+					"id": "28",
+					"toggleState": "expanded",
+					"title": "All failes",
+					"tests": [
+						"29",
+						"30"
+					],
+					"suites": [],
+					"parent": "24",
+					"status": "failed"
+				},
+				"31": {
+					"id": "31",
+					"toggleState": "collapsed",
+					"title": "A pass, a fail and a partial",
+					"tests": [],
+					"suites": [
+						"32",
+						"35",
+						"38"
+					],
+					"parent": "0",
+					"status": "pending"
+				},
+				"32": {
+					"id": "32",
+					"toggleState": "collapsed",
+					"title": "All Pass",
+					"tests": [
+						"33",
+						"34"
+					],
+					"suites": [],
+					"parent": "31",
+					"status": "passed"
+				},
+				"35": {
+					"id": "35",
+					"toggleState": "collapsed",
+					"title": "All failes",
+					"tests": [
+						"36",
+						"37"
+					],
+					"suites": [],
+					"parent": "31",
+					"status": "pending"
+				},
+				"38": {
+					"id": "38",
+					"toggleState": "collapsed",
+					"title": "Partial Pass",
+					"tests": [
+						"39",
+						"40"
+					],
+					"suites": [],
+					"parent": "31",
+					"status": "pending"
+				}
+			},
+			"tests": {
+				"2": {
+					"id": "2",
+					"title": "fail",
+					"status": "failed",
+					"parent": "1",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 5,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:5:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"3": {
+					"id": "3",
+					"title": "fail",
+					"status": "failed",
+					"parent": "1",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 8,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:8:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"5": {
+					"id": "5",
+					"title": "pass",
+					"status": "passed",
+					"parent": "4"
+				},
+				"6": {
+					"id": "6",
+					"title": "pass",
+					"status": "passed",
+					"parent": "4"
+				},
+				"8": {
+					"id": "8",
+					"title": "fail",
+					"status": "failed",
+					"parent": "7",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 24,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:24:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"9": {
+					"id": "9",
+					"title": "pass",
+					"status": "passed",
+					"parent": "7"
+				},
+				"12": {
+					"id": "12",
+					"title": "pass",
+					"status": "passed",
+					"parent": "11"
+				},
+				"13": {
+					"id": "13",
+					"title": "pass",
+					"status": "passed",
+					"parent": "11"
+				},
+				"15": {
+					"id": "15",
+					"title": "fail",
+					"status": "failed",
+					"parent": "14",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 5,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:5:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"16": {
+					"id": "16",
+					"title": "fail",
+					"status": "failed",
+					"parent": "14",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 8,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:8:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"19": {
+					"id": "19",
+					"title": "pass",
+					"status": "passed",
+					"parent": "18"
+				},
+				"20": {
+					"id": "20",
+					"title": "pass",
+					"status": "passed",
+					"parent": "18"
+				},
+				"22": {
+					"id": "22",
+					"title": "pass",
+					"status": "passed",
+					"parent": "21"
+				},
+				"23": {
+					"id": "23",
+					"title": "pass",
+					"status": "passed",
+					"parent": "21"
+				},
+				"26": {
+					"id": "26",
+					"title": "fail",
+					"status": "failed",
+					"parent": "25",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 5,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:5:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"27": {
+					"id": "27",
+					"title": "fail",
+					"status": "failed",
+					"parent": "25",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 8,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:8:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"29": {
+					"id": "29",
+					"title": "fail",
+					"status": "failed",
+					"parent": "28",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 5,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:5:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"30": {
+					"id": "30",
+					"title": "fail",
+					"status": "failed",
+					"parent": "28",
+					"error": {
+						"message": "The test has failed",
+						"stack": [
+							{
+								"functionName": "Context.<anonymous>",
+								"fileName": "C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js",
+								"lineNumber": 8,
+								"columnNumber": 19,
+								"source": "    at Context.<anonymous> (C:/cygwin64/home/boogie666/js/atom-mocha/test/test2.js:8:19)"
+							},
+							{
+								"functionName": "callFn",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 286,
+								"columnNumber": 21,
+								"source": "    at callFn (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:286:21)"
+							},
+							{
+								"functionName": "Test.Runnable.run",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js",
+								"lineNumber": 279,
+								"columnNumber": 7,
+								"source": "    at Test.Runnable.run (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runnable.js:279:7)"
+							},
+							{
+								"functionName": "Runner.runTest",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 421,
+								"columnNumber": 10,
+								"source": "    at Runner.runTest (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:421:10)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 528,
+								"columnNumber": 12,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:528:12"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 341,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:341:14)"
+							},
+							{
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 351,
+								"columnNumber": 7,
+								"source": "    at C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:351:7"
+							},
+							{
+								"functionName": "next",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 283,
+								"columnNumber": 14,
+								"source": "    at next (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:283:14)"
+							},
+							{
+								"functionName": "Immediate._onImmediate",
+								"fileName": "C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js",
+								"lineNumber": 319,
+								"columnNumber": 5,
+								"source": "    at Immediate._onImmediate (C:\\cygwin64\\home\\boogie666\\js\\atom-mocha\\node_modules\\mocha\\lib\\runner.js:319:5)"
+							}
+						]
+					}
+				},
+				"33": {
+					"id": "33",
+					"title": "pass",
+					"status": "passed",
+					"parent": "32"
+				},
+				"34": {
+					"id": "34",
+					"title": "pass",
+					"status": "passed",
+					"parent": "32"
+				},
+				"36": {
+					"id": "36",
+					"title": "fail",
+					"status": "pending",
+					"parent": "35"
+				},
+				"37": {
+					"id": "37",
+					"title": "fail",
+					"status": "pending",
+					"parent": "35"
+				},
+				"39": {
+					"id": "39",
+					"title": "fail",
+					"status": "pending",
+					"parent": "38"
+				},
+				"40": {
+					"id": "40",
+					"title": "pass",
+					"status": "pending",
+					"parent": "38"
+				}
+			}
+		},
+		"result": [
+			"0"
+		],
+		"stats": null
+	}
+}

@@ -1,6 +1,6 @@
 import reducer from "../src/reducers";
-import {Actions} from "../src/actions";
 import {expect} from "chai";
+import {Actions} from "../src/actions";
 
 
 const state = {
@@ -59,7 +59,7 @@ function createEndTestAction(testId){
 describe("If a test fails", function(){
     const action = createEndTestAction("2");
     const newState = reducer(state, action);
-    
+
     it("expands all the nodes from that test upward", function(){
         const test = byId(newState, "tests", 2);
         const parentSuite = byId(newState, "suites", test.parent);

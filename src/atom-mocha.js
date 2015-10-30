@@ -1,17 +1,22 @@
 import {CompositeDisposable} from "atom";
+import {promisify} from "./utils";
 import AtomMochaView from "./atom-mocha-view";
 import MochaRuntime from "./mocha";
 import {createStore} from "redux";
 import reducer from "./reducers";
 import {generateTest} from "./generateTest";
+import fs from "fs";
+import path from "path";
 
 const store = createStore(reducer);
 const runtime = new MochaRuntime(store);
 
+const readdir = promisify(fs.readdir);
+const stat = promisify(fs.stat);
+
+const fileRegex = "*.js";
+
 export default {
-  atomMochaView: null,
-  modalPanel: null,
-  subscriptions: null,
   activate(state) {
     const that = this;
     this.atomMochaView = new AtomMochaView(state.atomMochaViewState, store, runtime);
@@ -25,12 +30,23 @@ export default {
       'atom-mocha:rerunTests' : ()=> runtime.start()
     }));
     this.subscriptions.add(atom.commands.add('.tree-view .file .name', {
-        'atom-mocha:runTestFile': function(e){
+        'atom-mocha:runTestFile': function(){
             const filePath = this.getAttribute("data-path");
             that.restartRuntimeWithFile(filePath);
         }
     }));
-
+    this.subscriptions.add(atom.commands.add('.tree-view .file .name', {
+        'atom-mocha:runTestFile': function(){
+            const filePath = this.getAttribute("data-path");
+            that.restartRuntimeWithFile(filePath);
+        }
+    }));
+    this.subscriptions.add(atom.commands.add('.tree-view .directory span.icon-file-directory', {
+        'atom-mocha:runTestFolder' : function(e){
+            const folderPath = this.getAttribute("data-path");
+            that.restartRuntimeWithFolder(folderPath);
+        }
+    }));
     this.subscriptions.add(atom.commands.add('atom-text-editor', {
         'atom-mocha:runTestFileFromEditor' : function(){
             const filePath = atom.workspace.getActivePaneItem().buffer.file.path;
@@ -39,11 +55,31 @@ export default {
     }));
 
   },
+  restartRuntimeWithFolder(folderPath){
+      this.modalPanel.show();
+      runtime.clearFiles();
+      readdir(folderPath).then((files) => {
+          Promise.all(files.map(file => {
+              return this.addFileOrFolderToRuntime(path.join(folderPath, file));
+          })).then( () => {
+              runtime.start();
+          });
+      });
+  },
+  addFileOrFolderToRuntime(file){
+      return stat(file).then( (result)=> {
+          if(result.isDirectory()){
+              return;
+          }
+          runtime.addFile(file);
+      });
+  },
   restartRuntimeWithFile(filePath){
       this.modalPanel.show();
       runtime.clearFiles();
-      runtime.addFile(filePath);
-      runtime.start();
+      this.addFileOrFolderToRuntime(filePath).then(()=>{
+          runtime.start();
+      });
   },
   deactivate() {
     this.modalPanel.destroy();

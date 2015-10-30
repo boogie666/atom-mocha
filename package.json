@@ -3,7 +3,12 @@
   "main": "./lib/atom-mocha",
   "version": "0.1.0",
   "description": "Mocha testrunner for atom",
-  "keywords": [],
+  "keywords": [
+    "mocha",
+    "test",
+    "specs",
+    "atom-mocha"
+  ],
   "repository": "https://github.com/boogie666/atom-mocha.git",
   "license": "MIT",
   "engines": {

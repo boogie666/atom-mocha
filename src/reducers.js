@@ -117,10 +117,12 @@ function updateSuiteStatus(suites, tests, id){
 }
 
 
+
 const entitiesAndResult = combineReducers({
     entities : combineReducers( { suites, tests} ),
     result : identity([]),
-    stats : identity(null)
+    stats : identity(null),
+    error : identity(null)
 });
 
 const initialState = {
@@ -129,7 +131,8 @@ const initialState = {
         suites : {},
         tests : {}
     },
-    result : []
+    result : [],
+    error : null
 };
 
 function expandParents(state, action){
@@ -189,10 +192,21 @@ function begin(state, action){
     return state;
 }
 
+
 function attachStats(state, action){
     if(action.type === Actions.END){
         const {stats} = action.data;
         return { ...state, stats };
+    }
+    return state;
+}
+
+function handleError(state, action){
+    if(action.type === Actions.ERROR){
+        return {
+            ...state,
+            error : action.error
+        }
     }
     return state;
 }
@@ -205,4 +219,4 @@ function pipeReducers(...fns){
     }
 }
 
-export default pipeReducers(restart,begin, attachStats, entitiesAndResult, setSuiteStatus, expandParents);
+export default pipeReducers(handleError, restart, begin, attachStats, entitiesAndResult, setSuiteStatus, expandParents);

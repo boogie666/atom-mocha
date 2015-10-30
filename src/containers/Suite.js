@@ -1,37 +1,6 @@
 import React from "react";
 import PureComponent from "../utils/PureComponent";
-
-class TestError extends PureComponent{
-    render(){
-        const {error, action} = this.props;
-        return (
-            <atom-panel class='top'>
-                <div >
-                    <div className="panel-heading">
-                        <span className="text-error">{error.message}</span>
-                    </div>
-                    <div className="panel-body scroll-x">
-                        {this.renderStackFrames(error.stack, action)}
-                    </div>
-                </div>
-            </atom-panel>
-        )
-    }
-    renderStackFrames(stack, action){
-        const stackFrames = stack.map((frame, i) => {
-            return (
-                <li key={i} className="list-item text-subtle">
-                    <a onClick={()=>action(frame)} className="text-subtle">{frame.source}</a>
-                </li>
-            );
-        });
-        return (
-            <ul className='list-group'>
-                {stackFrames}
-            </ul>
-        );
-    }
-}
+import ErrorDisplay from "./ErrorDisplay";
 
 class Test extends PureComponent{
     render(){
@@ -48,7 +17,7 @@ class Test extends PureComponent{
         if(!error){
             return null;
         }
-        return <TestError error={error} action={action}/>;
+        return <ErrorDisplay error={error} action={action}/>;
     }
     getColor({status}){
         if(status === "passed"){

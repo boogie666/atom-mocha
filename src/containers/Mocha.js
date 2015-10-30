@@ -1,6 +1,7 @@
 import React from "react";
 import PureComponent from "../utils/PureComponent";
 import Suite from "./Suite";
+import ErrorDisplay from "./ErrorDisplay";
 import {connect} from "react-redux";
 import {toggleSuite} from "../actions";
 import {dataForTest, createTestFiles} from "../generateTest";
@@ -70,35 +71,54 @@ class StatsView extends PureComponent{
 
 class Mocha extends PureComponent{
     render(){
-        const {result, entities, dispatch, stats, action, restartTests} = this.props;
+        const {entities, stats, error, restartTests} = this.props;
         const {suites, tests} = entities;
         const byId = (type, id) => {
             return entities[type][id];
         };
-        const noTestsMessage = this.getNoTestsMessage(stats);
         return (
             <atom-panel class="top scroll-panel">
                 <div className="inset-panel">
                     <div className="panel-heading">
                         <div className="inline-block">
-                            {this.renderTitle(stats, restartTests)}
+                            {this.renderTitle(stats, error, restartTests)}
                         </div>
                         <div className="inline-block" style={ {float : "right"} }>
                             <StatsView stats={stats} suites={suites} tests={tests} byId={byId}/>
                         </div>
                     </div>
                     <div className="panel-body padded">
-                        {noTestsMessage}
-                        <ul className="list-tree has-collapsable-children">
-                            { result.map( suite => <Suite key={suite} suiteId={suite} byId={ byId } toggleItem={ (suiteId)=> this.toggleItem(suiteId) } action={action}/> ) }
-                        </ul>
+                        {this.hasError() ?
+                            this.renderError() :
+                            this.renderResults(byId)}
                     </div>
                 </div>
             </atom-panel>
         );
     }
-    renderTitle(stats, restartTests){
-        if(!stats){
+    hasError(){
+        return !!this.props.error;
+    }
+    renderError(){
+        const {error, action} = this.props;
+        return <ErrorDisplay error={error} action={action}/>
+    }
+    renderResults(byId){
+        const {result, entities, stats, action} = this.props;
+        const {suites, tests} = entities;
+        const noTestsMessage = this.getNoTestsMessage(stats);
+        return (
+            <div>
+                {noTestsMessage}
+                <ul className="list-tree has-collapsable-children">
+                    { result.map( suite => <Suite key={suite} suiteId={suite} byId={ byId } toggleItem={ (suiteId)=> this.toggleItem(suiteId) } action={action}/> ) }
+                </ul>
+            </div>
+        );
+
+    }
+    renderTitle(stats, error, restartTests){
+        if(!stats && !error){
             return <span>Tests</span>;
         }
 
@@ -123,4 +143,4 @@ class Mocha extends PureComponent{
     }
 }
 
-export default connect( (state)=>state )(Mocha);
+export default connect( state => state )(Mocha);

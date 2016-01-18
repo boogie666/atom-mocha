@@ -9,17 +9,39 @@ import fs from "fs";
 import path from "path";
 
 const store = createStore(reducer);
-const runtime = new MochaRuntime(store);
 
 const readdir = promisify(fs.readdir);
 const stat = promisify(fs.stat);
 
 const fileRegex = "*.js";
 
+function compilerFromConfig(config){
+    switch(config){
+        case "ES5 (nothing)":
+            return "";
+        case "ES6 (Babel 5.8.34)":
+            return "babel/register";
+        case "CoffeScript (coffeescript compiler 1.10.0)":
+            return "coffee-script/register";
+        default:
+            return "";
+    }
+}
+
 export default {
+  config : {
+      compiler: {
+        type: 'string',
+        default: "ES6 (Babel 5.8.34)",
+        enum: ["ES5 (nothing)", "ES6 (Babel 5.8.34)", "CoffeScript (coffeescript compiler 1.10.0)"],
+        description : "Defines the compiler to be used for the test files and the files required in the tests"
+    }
+  },
   activate(state) {
     const that = this;
-    this.atomMochaView = new AtomMochaView(state.atomMochaViewState, store, runtime);
+    var language = atom.config.get("atom-mocha.compiler");
+    this.runtime = new MochaRuntime(store, compilerFromConfig(language));
+    this.atomMochaView = new AtomMochaView(state.atomMochaViewState, store, this.runtime);
     this.modalPanel = atom.workspace.addRightPanel({
       item: this.atomMochaView,
       visible: false
@@ -27,7 +49,7 @@ export default {
     this.subscriptions = new CompositeDisposable();
     this.subscriptions.add(atom.commands.add('atom-workspace', {
       'atom-mocha:toggle': ()=> this.toggle(),
-      'atom-mocha:rerunTests' : ()=> runtime.start()
+      'atom-mocha:rerunTests' : ()=> this.runtime.start()
     }));
     this.subscriptions.add(atom.commands.add('.tree-view .file .name', {
         'atom-mocha:runTestFile': function(){
@@ -57,12 +79,12 @@ export default {
   },
   restartRuntimeWithFolder(folderPath){
       this.modalPanel.show();
-      runtime.clearFiles();
+      this.runtime.clearFiles();
       readdir(folderPath).then((files) => {
           Promise.all(files.map(file => {
               return this.addFileOrFolderToRuntime(path.join(folderPath, file));
           })).then( () => {
-              runtime.start();
+              this.runtime.start();
           });
       });
   },
@@ -71,14 +93,14 @@ export default {
           if(result.isDirectory()){
               return;
           }
-          runtime.addFile(file);
+          this.runtime.addFile(file);
       });
   },
   restartRuntimeWithFile(filePath){
       this.modalPanel.show();
-      runtime.clearFiles();
+      this.runtime.clearFiles();
       this.addFileOrFolderToRuntime(filePath).then(()=>{
-          runtime.start();
+          this.runtime.start();
       });
   },
   deactivate() {

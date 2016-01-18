@@ -2,8 +2,11 @@ import reporter from "./mocha-reporter";
 import Mocha from "mocha";
 import ErrorStackParser from "error-stack-parser";
 
-const files = process.argv.concat();
-files.splice(0, 2);
+const args = process.argv.concat();
+args.splice(0, 2);
+const compiler = args[0];
+args.splice(0, 1);
+const files = args;
 
 process.on('uncaughtException', (e)=>{
     process.send({
@@ -23,5 +26,7 @@ process.send({
     messaege : "INIT",
     files : files
 });
-require("babel/register");
+if(compiler){
+    require(compiler);
+}
 mocha.run();

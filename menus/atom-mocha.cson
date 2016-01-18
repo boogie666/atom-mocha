@@ -16,7 +16,7 @@
           'command': 'atom-mocha:runTestFolder'
       }
   ]
-  '.tree-view .file .name[data-name$=\\.js]' : [
+  '.tree-view .file .name[data-name$=\\.js], .tree-view .file .name[data-name$=\\.coffee]' : [
       {
           'label': 'Run Test'
           'command': 'atom-mocha:runTestFile'

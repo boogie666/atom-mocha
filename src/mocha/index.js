@@ -7,14 +7,15 @@ import AbstractRuntime from "../AbstractRuntime";
 import path from "path";
 
 export default class MochaRuntime extends AbstractRuntime{
-    constructor(store){
+    constructor(store, compiler){
         super();
         this.store = store;
+        this.compiler = compiler;
     }
     start(){
         const {store, files} =  this;
         const mochaPath = path.join(__dirname, 'mocha-process.js');
-        const mocha =  process.fork(mochaPath, this.files, {
+        const mocha =  process.fork(mochaPath, [this.compiler].concat(this.files), {
             slient : true
         }, {
             error : function(err){

@@ -22,7 +22,7 @@ You: ehm..
 
 Me: My my, what a curious fellow you seem to be?!
 
-This plugin is written a bit differently then others, I like to thing.
+This plugin is written a bit differently then others, I like to think.
 Sure the main entry point has to be made with Atom's API.
 But everything else is [React](https://facebook.github.io/react/) + [Redux](http://rackt.org/redux/index.html).
 

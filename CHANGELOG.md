@@ -1,3 +1,6 @@
+## 0.0.4 - First Release
+* changed shortcut for Run Current File to alt-shift-t
+
 ## 0.0.3 - First Release
 * Configurable compiler
 * Support for Coffeescript

@@ -11,4 +11,4 @@
   'ctrl-alt-t': 'atom-mocha:toggle'
   'ctrl-shift-r' : 'atom-mocha:rerunTests'
 'atom-text-editor':
-  'ctrl-shift-t' : 'atom-mocha:runTestFileFromEditor'
+  'alt-shift-t' : 'atom-mocha:runTestFileFromEditor'

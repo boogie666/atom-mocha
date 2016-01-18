@@ -1,5 +1,7 @@
 # atom-mocha package
 
+[![Join the chat at https://gitter.im/boogie666/atom-mocha](https://badges.gitter.im/boogie666/atom-mocha.svg)](https://gitter.im/boogie666/atom-mocha?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Me: atom-mocha is a plugin for running tests with mocha, from atom.
 
 You: I kinda' figured that out, thx Captain Obvious.
@@ -20,7 +22,7 @@ You: ehm..
 
 Me: My my, what a curious fellow you seem to be?!
 
-This plugin is written a bit differently then others, I like to thing.
+This plugin is written a bit differently then others, I like to think.
 Sure the main entry point has to be made with Atom's API.
 But everything else is [React](https://facebook.github.io/react/) + [Redux](http://rackt.org/redux/index.html).
 

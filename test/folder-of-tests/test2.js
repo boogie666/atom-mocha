@@ -1,3 +1,5 @@
+import {a_function} from "./a_require";
+import {expect} from "chai";
 
 function aFailedSuite(){
     describe("All failes", ()=>{
@@ -33,6 +35,12 @@ function aMixedSuite(name, ...suites){
         suites.forEach((suite)=>{ suite(); });
     })
 }
+
+describe("a required function", ()=>{
+    it("is ok", ()=>{
+        expect(a_function(1)).to.be.eql(2);
+    })
+})
 
 aFailedSuite();
 aPassedSuite();

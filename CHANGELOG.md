@@ -1,3 +1,6 @@
+## 0.0.5 - More configs
+* added configurable environment variables.
+
 ## 0.0.4 - First Release
 * changed shortcut for Run Current File to alt-shift-t
 

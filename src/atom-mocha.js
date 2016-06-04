@@ -28,19 +28,39 @@ function compilerFromConfig(config){
     }
 }
 
+function parseEnvironmentVariables(variables){
+    if(!variables){
+        return null;
+    }
+    return variables.split(";").reduce((environmentVariables, currentVariable) => {
+        var parts = currentVariable.split("=").map( part => part.trim());
+        environmentVariables[parts[0]] = parts[1];
+        return environmentVariables;
+    }, {});
+}
+
 export default {
   config : {
       compiler: {
-        type: 'string',
-        default: "ES6 (Babel 5.8.34)",
-        enum: ["ES5 (nothing)", "ES6 (Babel 5.8.34)", "CoffeScript (coffeescript compiler 1.10.0)"],
-        description : "Defines the compiler to be used for the test files and the files required in the tests"
-    }
+          type: 'string',
+          default: "ES6 (Babel 5.8.34)",
+          enum: ["ES5 (nothing)", "ES6 (Babel 5.8.34)", "CoffeScript (coffeescript compiler 1.10.0)"],
+          description : "Defines the compiler to be used for the test files and the files required in the tests"
+      },
+      enviromentVariables : {
+          type : 'string',
+          default : "",
+          description : "Define a set of envirment variables for the mocha process. Enviroment variables should be specified in the following format: VARIABLE1_NAME=VARIABLE1_VALUE; VARIABLE2_NAME=VARIABLE2_VALUE;"
+      }
   },
   activate(state) {
     const that = this;
     var language = atom.config.get("atom-mocha.compiler");
-    this.runtime = new MochaRuntime(store, compilerFromConfig(language));
+    var enviromentVariables = atom.config.get("atom-mocha.enviromentVariables");
+    this.runtime = new MochaRuntime(store, {
+        compiler : compilerFromConfig(language),
+        env : parseEnvironmentVariables(enviromentVariables)
+    });
     this.atomMochaView = new AtomMochaView(state.atomMochaViewState, store, this.runtime);
     this.modalPanel = atom.workspace.addRightPanel({
       item: this.atomMochaView,

@@ -1,3 +1,5 @@
+require("babel/register");
+
 import reducer from "../src/reducers";
 import {expect} from "chai";
 import {Actions} from "../src/actions";

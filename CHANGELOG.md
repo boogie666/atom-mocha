@@ -1,5 +1,6 @@
 ## 0.0.5 - Bug fixing
 * Nav to file should now work on linux (fixed https://github.com/boogie666/atom-mocha/issues/5)
+* fixed a potential bug?? maybe?? where atom mocha crashes due to active pane not having a buffer
 
 ## 0.0.5 - More configs
 * added configurable environment variables.

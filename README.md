@@ -49,7 +49,7 @@ Me: Ofc. Here's a small list a features.
 - Can run tests from just about anywhere
     - context menu on .js files (Run Test)
     - context menu on folder (Run Tests)
-    - CTRL + SHIFT + T (Run Test - Current File)
+    - ALT  + SHIFT + T (Run Test - Current File)
     - CTRL + SHIFT + R (Re-run last test)
 - Navigate to source from stack trace (click on the trace item)
 - Tree view of tests

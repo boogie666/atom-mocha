@@ -28,13 +28,12 @@ export default class ErrorDisplay extends PureComponent{
         );
     }
     renderStackFrames(stack, action){
-        const stackFrames = stack.map((frame, i) => {
-            return (
-                <li key={i} className="list-item text-subtle">
-                    <a onClick={()=>action(frame)} className="text-subtle">{frame.source}</a>
-                </li>
-            );
-        });
+
+        const stackFrames = stack.map((frame, i) => (
+            <li key={i} className="list-item text-subtle">
+                <a onClick={()=>action(frame)} className="text-subtle">{frame.fileName}</a>
+            </li>
+        ));
         return (
             <ul className='list-group'>
                 {stackFrames}

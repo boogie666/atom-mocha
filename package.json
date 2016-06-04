@@ -21,11 +21,11 @@
     "mocha": "2.5.3",
     "normalizr": "1.0.0",
     "qunitjs": "1.19.0",
-    "react": "0.14.0",
-    "react-addons-pure-render-mixin": "0.14.0",
-    "react-dom": "0.14.0",
-    "react-redux": "4.0.0",
-    "redux": "3.0.2"
+    "react": "15.1.0",
+    "react-addons-pure-render-mixin": "15.1.0",
+    "react-dom": "15.1.0",
+    "react-redux": "4.4.5",
+    "redux": "3.5.2"
   },
   "devDependencies": {
     "chai": "^3.4.0",

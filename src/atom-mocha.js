@@ -47,7 +47,7 @@ export default {
           enum: ["ES5 (nothing)", "ES6 (Babel 5.8.34)", "CoffeScript (coffeescript compiler 1.10.0)"],
           description : "Defines the compiler to be used for the test files and the files required in the tests"
       },
-      enviromentVariables : {
+      environmentVariables : {
           type : 'string',
           default : "",
           description : "Define a set of envirment variables for the mocha process. Enviroment variables should be specified in the following format: VARIABLE1_NAME=VARIABLE1_VALUE; VARIABLE2_NAME=VARIABLE2_VALUE;"
@@ -55,11 +55,11 @@ export default {
   },
   activate(state) {
     const that = this;
-    var language = atom.config.get("atom-mocha.compiler");
-    var enviromentVariables = atom.config.get("atom-mocha.enviromentVariables");
+    const language = atom.config.get("atom-mocha.compiler");
+    const environmentVariables = atom.config.get("atom-mocha.environmentVariables");
     this.runtime = new MochaRuntime(store, {
         compiler : compilerFromConfig(language),
-        env : parseEnvironmentVariables(enviromentVariables)
+        env : parseEnvironmentVariables(environmentVariables)
     });
     this.atomMochaView = new AtomMochaView(state.atomMochaViewState, store, this.runtime);
     this.modalPanel = atom.workspace.addRightPanel({

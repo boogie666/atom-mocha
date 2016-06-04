@@ -1,3 +1,6 @@
+## 0.0.5 - Bug fixing
+* Nav to file should now work on linux (fixed https://github.com/boogie666/atom-mocha/issues/5)
+
 ## 0.0.5 - More configs
 * added configurable environment variables.
 

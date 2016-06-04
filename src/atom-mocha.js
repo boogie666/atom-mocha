@@ -91,8 +91,12 @@ export default {
     }));
     this.subscriptions.add(atom.commands.add('atom-text-editor', {
         'atom-mocha:runTestFileFromEditor' : function(){
-            const filePath = atom.workspace.getActivePaneItem().buffer.file.path;
-            that.restartRuntimeWithFile(filePath);
+            const buffer = atom.workspace.getActivePaneItem().buffer;
+            const file = buffer ? buffer.file : null;
+            const path = file ? file.path : null;
+            if(path){
+                that.restartRuntimeWithFile(path);
+            }
         }
     }));
 

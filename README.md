@@ -6,6 +6,8 @@
 
 [![devDependency Status](https://david-dm.org/boogie666/atom-mocha/dev-status.svg)](https://david-dm.org/boogie666/atom-mocha#info=devDependencies)
 
+[![Build status](https://travis-ci.org/boogie666/maven-proxy.svg?branch=master)](https://travis-ci.org/boogie666/maven-proxy.svg?branch=master)
+
 Me: atom-mocha is a plugin for running tests with mocha, from atom.
 
 You: I kinda' figured that out, thx Captain Obvious.

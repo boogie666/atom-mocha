@@ -1,7 +1,7 @@
 {
   "name": "atom-mocha",
   "main": "./lib/atom-mocha",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Mocha testrunner for atom",
   "keywords": [
     "mocha",

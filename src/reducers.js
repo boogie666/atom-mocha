@@ -82,7 +82,7 @@ function determinePassOrFail(stuff){
     if(!hasFailed(stuff) && hasPassed(stuff)){
         return "passed";
     }
-    return null;
+    return "partial";
 }
 function determineStatus(suite, tests, suites){
 
@@ -142,7 +142,7 @@ function expandParents(state, action){
     const {id} = action.test;
     const {tests, suites} = state.entities;
     const test = tests[id];
-    if(test.status === "failed"){
+    if(test.status === "failed" || action.expandAnyway){
         return {
             ...state,
             entities : {

@@ -51,15 +51,23 @@ export default {
           type : 'string',
           default : "",
           description : "Define a set of envirment variables for the mocha process. Enviroment variables should be specified in the following format: VARIABLE1_NAME=VARIABLE1_VALUE; VARIABLE2_NAME=VARIABLE2_VALUE;"
+      },
+      alwaysExpandTree : {
+          type : 'boolean',
+          default : false,
+          description : "Tick if all nodes in the tree should expand after a test is executed. Untick if tree should only expand failed tests"
       }
   },
   activate(state) {
     const that = this;
     const language = atom.config.get("atom-mocha.compiler");
     const environmentVariables = atom.config.get("atom-mocha.environmentVariables");
+    const expandAnyway = atom.config.get("atom-mocha.alwaysExpandTree");
+    
     this.runtime = new MochaRuntime(store, {
         compiler : compilerFromConfig(language),
-        env : parseEnvironmentVariables(environmentVariables)
+        env : parseEnvironmentVariables(environmentVariables),
+        expandAnyway
     });
     this.atomMochaView = new AtomMochaView(state.atomMochaViewState, store, this.runtime);
     this.modalPanel = atom.workspace.addRightPanel({

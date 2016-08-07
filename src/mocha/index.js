@@ -7,11 +7,12 @@ import AbstractRuntime from "../AbstractRuntime";
 import path from "path";
 
 export default class MochaRuntime extends AbstractRuntime{
-    constructor(store, {compiler, env}){
+    constructor(store, {compiler, env, expandAnyway}){
         super();
         this.store = store;
         this.compiler = compiler;
         this.env = env;
+        this.expandAnyway = expandAnyway;
     }
     start(){
         const {store, files} =  this;
@@ -28,7 +29,7 @@ export default class MochaRuntime extends AbstractRuntime{
         mocha.on("uncaughtException", function(){
             console.log('error');
         });
-        mocha.on("message", function(action){
+        mocha.on("message", (action) => {
             switch(action.message){
                 case "BEGIN" :
                     return begin(store, { data : processor([makeSuite(action.data)])} );
@@ -37,7 +38,7 @@ export default class MochaRuntime extends AbstractRuntime{
                 case "START_TEST":
                     return startTest(store, { test : action.data });
                 case "END_TEST":
-                    return finishTest(store, { test : action.data });
+                    return finishTest(store, { test : action.data, expandAnyway : this.expandAnyway });
                 case "SUITE_END" :
                     return endSuite(store, { suite : action.data });
                 case "ERROR" :

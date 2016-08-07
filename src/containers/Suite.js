@@ -2,6 +2,8 @@ import React from "react";
 import PureComponent from "../utils/PureComponent";
 import ErrorDisplay from "./ErrorDisplay";
 
+console.log(React);
+
 class Test extends PureComponent{
     render(){
         const {testId, byId, action} = this.props;

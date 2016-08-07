@@ -63,7 +63,7 @@ export default {
     const language = atom.config.get("atom-mocha.compiler");
     const environmentVariables = atom.config.get("atom-mocha.environmentVariables");
     const expandAnyway = atom.config.get("atom-mocha.alwaysExpandTree");
-    
+
     this.runtime = new MochaRuntime(store, {
         compiler : compilerFromConfig(language),
         env : parseEnvironmentVariables(environmentVariables),
@@ -77,7 +77,16 @@ export default {
     this.subscriptions = new CompositeDisposable();
     this.subscriptions.add(atom.commands.add('atom-workspace', {
       'atom-mocha:toggle': ()=> this.toggle(),
-      'atom-mocha:rerunTests' : ()=> this.runtime.start()
+      'atom-mocha:rerunTests' : ()=> this.runtime.start(),
+      'atom-mocha:runTestFileFromEditor' : function(){
+            const activePaneItem = atom.workspace.getActivePaneItem();
+            const buffer = activePaneItem ? activePaneItem.buffer : null;
+            const file = buffer ? buffer.file : null;
+            const path = file ? file.path : null;
+            if(path){
+                that.restartRuntimeWithFile(path);
+            }
+        }
     }));
     this.subscriptions.add(atom.commands.add('.tree-view .file .name', {
         'atom-mocha:runTestFile': function(){
@@ -97,17 +106,6 @@ export default {
             that.restartRuntimeWithFolder(folderPath);
         }
     }));
-    this.subscriptions.add(atom.commands.add('atom-text-editor', {
-        'atom-mocha:runTestFileFromEditor' : function(){
-            const buffer = atom.workspace.getActivePaneItem().buffer;
-            const file = buffer ? buffer.file : null;
-            const path = file ? file.path : null;
-            if(path){
-                that.restartRuntimeWithFile(path);
-            }
-        }
-    }));
-
   },
   restartRuntimeWithFolder(folderPath){
       this.modalPanel.show();

@@ -13,11 +13,17 @@ export default class MochaRuntime extends AbstractRuntime{
         this.compiler = compiler;
         this.env = env;
         this.expandAnyway = expandAnyway;
+        this.mocha = null;
     }
     start(){
         const {store, files} =  this;
         const mochaPath = path.join(__dirname, 'mocha-process.js');
-        const mocha =  process.fork(mochaPath, [this.compiler].concat(this.files), {
+        if(this.mocha !== null){
+          this.cleanup();
+          this.mocha.kill();
+          this.mocha = null;
+        }
+        this.mocha =  process.fork(mochaPath, [this.compiler].concat(this.files), {
             slient : true,
             env : this.env || {}
         }, {
@@ -26,14 +32,16 @@ export default class MochaRuntime extends AbstractRuntime{
             }
         });
         restart(store);
-        mocha.on("uncaughtException", function(){
+        this.mocha.on("uncaughtException", function(){
             console.log('error');
         });
-        mocha.on("message", (action) => {
+        this.mocha.on("message", (action) => {
             switch(action.message){
                 case "BEGIN" :
                     return begin(store, { data : processor([makeSuite(action.data)])} );
                 case "END" :
+                    this.cleanup();
+                    this.mocha = null;
                     return done(store, { data : action.data });
                 case "START_TEST":
                     return startTest(store, { test : action.data });
@@ -45,6 +53,9 @@ export default class MochaRuntime extends AbstractRuntime{
                     return handleError(store, { error : action.error });
             }
         });
+    }
+    cleanup() {
+      this.mocha.removeAllListeners();
     }
     clearFiles(){
         this.files = [];

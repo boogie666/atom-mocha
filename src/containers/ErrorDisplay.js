@@ -31,7 +31,7 @@ export default class ErrorDisplay extends PureComponent{
 
         const stackFrames = stack.map((frame, i) => (
             <li key={i} className="list-item text-subtle">
-                <a onClick={()=>action(frame)} className="text-subtle">{frame.fileName}</a>
+                <a onClick={()=>action(frame)} className="text-subtle">{frame.source}</a>
             </li>
         ));
         return (

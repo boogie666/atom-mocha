@@ -2,6 +2,11 @@
 
 [![Join the chat at https://gitter.im/boogie666/atom-mocha](https://badges.gitter.im/boogie666/atom-mocha.svg)](https://gitter.im/boogie666/atom-mocha?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+[![Dependency Status](https://david-dm.org/boogie666/atom-mocha.svg)](https://david-dm.org/boogie666/atom-mocha)
+
+[![devDependency Status](https://david-dm.org/boogie666/atom-mocha/dev-status.svg)](https://david-dm.org/boogie666/atom-mocha#info=devDependencies)
+
+
 Me: atom-mocha is a plugin for running tests with mocha, from atom.
 
 You: I kinda' figured that out, thx Captain Obvious.

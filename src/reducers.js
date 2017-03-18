@@ -74,7 +74,19 @@ function hasFailed(stuff){
 function hasPassed(stuff){
     return stuff.passed > 0;
 }
-function determinePassOrFail(stuff){
+
+function determineTestPassOrFail(testStuff){
+  if(hasPassed(testStuff) && !hasFailed(testStuff)){
+    return "passed";
+  }
+  if(!hasPassed(testStuff) && hasFailed(testStuff)){
+    return "failed";
+  }
+
+  return null;
+}
+
+function determineSuitePassOrFail(stuff){
     if(hasFailed(stuff) && !hasPassed(stuff)){
         return "failed";
     }
@@ -96,12 +108,13 @@ function determineStatus(suite, tests, suites){
         passed : tests.reduce(count("passed"), 0)
     };
 
-    if(suites.partial){
+    if(suite.partial){
         return "partial";
     }
 
-    return determinePassOrFail(testStatus) || determinePassOrFail(suiteStatus) ||  "partial";
+    return determineTestPassOrFail(testStatus) || determineSuitePassOrFail(suiteStatus) ||  "partial";
 }
+
 function updateSuiteStatus(suites, tests, id){
     const suite = {...suites[id]};
     const suiteTests = suite.tests.map(s => {

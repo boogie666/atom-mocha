@@ -1,7 +1,7 @@
 describe("A test 1", function(){
     it("should pass", function(){
     });
-    // 
+    //
     // it("should fail", function(){
     //     throw new Error();
     // });
@@ -11,7 +11,7 @@ describe("A test 1", function(){
         });
         it("fails", function(){
 
-                throw new Error();
+            //    throw new Error();
         });
         it("is async", function(done){
             setTimeout(function(){
@@ -52,7 +52,7 @@ describe("A test 2", function(){
     });
 
     it("should fail", function(){
-        throw new Error();
+        //throw new Error();
     });
     describe("with nested stuff", function(){
         it("passes", function(){
@@ -99,7 +99,7 @@ describe("A test", function(){
     });
 
     it("should fail", function(){
-        throw new Error();
+        //throw new Error();
     });
     describe("with nested stuff", function(){
         it("passes", function(){
@@ -146,7 +146,7 @@ describe("A test", function(){
     });
 
     it("should fail", function(){
-        throw new Error("With this error message");
+        //throw new Error("With this error message");
     });
     describe("with nested stuff", function(){
         it("passes", function(){

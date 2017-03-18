@@ -4,7 +4,6 @@ import Suite from "./Suite";
 import ErrorDisplay from "./ErrorDisplay";
 import {connect} from "react-redux";
 import {toggleSuite} from "../actions";
-import {dataForTest, createTestFiles} from "../generateTest";
 
 
 class ItemCount extends PureComponent{

@@ -4,7 +4,6 @@ import AtomMochaView from "./atom-mocha-view";
 import MochaRuntime from "./mocha";
 import {createStore} from "redux";
 import reducer from "./reducers";
-import {generateTest} from "./generateTest";
 import fs from "fs";
 import path from "path";
 
@@ -75,6 +74,13 @@ export default {
       visible: false
     });
     this.subscriptions = new CompositeDisposable();
+    this.subscriptions.add(atom.config.observe("atom-mocha", (value) => {
+      try{
+        this.runtime.compiler = compilerFromConfig(value.compiler);
+        this.runtime.env = parseEnvironmentVariables(value.environmentVariables);
+        this.runtime.expandAnyway = value.alwaysExpandTree;
+      }catch(e){}
+    }));
     this.subscriptions.add(atom.commands.add('atom-workspace', {
       'atom-mocha:toggle': ()=> this.toggle(),
       'atom-mocha:rerunTests' : ()=> this.runtime.start(),

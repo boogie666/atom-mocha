@@ -1,7 +1,7 @@
 import Mocha from "mocha";
 import processor from "../utils/processor";
 import makeSuite from "../utils/make-suites";
-import {begin, done, endSuite, startTest, finishTest, restart, handleError} from "../actions";
+import {begin, done, endSuite, startTest, finishTest, restart, handleError, handleHookFailed, handleEachHookFailed} from "../actions";
 import process from "child_process";
 import AbstractRuntime from "../AbstractRuntime";
 import path from "path";
@@ -24,13 +24,10 @@ export default class MochaRuntime extends AbstractRuntime{
           this.mocha = null;
         }
         this.mocha =  process.fork(mochaPath, [this.compiler].concat(this.files), {
-            slient : true,
-            env : this.env || {}
-        }, {
-            error : function(err){
-                console.trace(err);
-            }
+            slient : false,
+            env : this.env || {},
         });
+
         restart(store);
         this.mocha.on("uncaughtException", function(){
             console.log('error');
@@ -51,6 +48,14 @@ export default class MochaRuntime extends AbstractRuntime{
                     return endSuite(store, { suite : action.data });
                 case "ERROR" :
                     return handleError(store, { error : action.error });
+                case "BEFORE_ALL" :
+                    return handleHookFailed(store, action.data);
+                case "AFTER_ALL" :
+                    return handleHookFailed(store, action.data);
+                case "BEFORE_EACH" :
+                    return handleEachHookFailed(store, action.data);
+                case "AFTER_EACH":
+                    return handleEachHookFailed(store, action.data);
             }
         });
     }

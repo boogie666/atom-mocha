@@ -19,6 +19,10 @@ process.on('uncaughtException', (e)=>{
     });
 });
 
+process.send = process.send || function(){
+  console.log.apply(console, arguments);
+};
+
 const mocha = new Mocha({ reporter });
 files.forEach((file) => mocha.addFile(file));
 

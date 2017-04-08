@@ -15,7 +15,9 @@ function action(type){
 }
 
 export const Actions = mirror("BEGIN", "START_TEST",
-    "END_TEST", "END", "RESTART", "TOGGLE_SUITE", "END_SUITE", "ERROR");
+    "END_TEST", "END", "RESTART",
+    "TOGGLE_SUITE", "END_SUITE", "ERROR",
+    "HOOK_FAILED", "EACH_HOOK_FAILED");
 
 export const begin = action(Actions.BEGIN);
 export const done = action(Actions.END);
@@ -25,3 +27,5 @@ export const restart = action(Actions.RESTART);
 export const toggleSuite = action(Actions.TOGGLE_SUITE);
 export const endSuite = action(Actions.END_SUITE);
 export const handleError = action(Actions.ERROR);
+export const handleHookFailed = action(Actions.HOOK_FAILED);
+export const handleEachHookFailed = action(Actions.EACH_HOOK_FAILED);

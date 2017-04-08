@@ -36,17 +36,44 @@ export function passTest(test){
 }
 
 export function failTest(test, error){
-    process.send({
-        message : "END_TEST",
+    if(test.type === "hook"){
+      //TODO find a better way to check hook type
+      var hookType;
+      if(test.title === "\"after all\" hook"){
+        hookType = "AFTER_ALL";
+      }else if(test.title === "\"before all\" hook"){
+        hookType = "BEFORE_ALL";
+      }else if(test.title.indexOf("\"after each\"") > -1){
+        hookType = "AFTER_EACH";
+      }else if(test.title.indexOf("\"before each\"") > -1){
+        hookType = "BEFORE_EACH";
+      }
+      process.send({
+        message : hookType,
         data : {
-            id : test.id,
-            state : test.state,
-            error : {
-                message : error.message,
-                stack : ErrorStackParser.parse(error)
-            }
+          hookType : hookType,
+          suiteId : test.parent.id,
+          state : test.state,
+          title : test.title,
+          error : {
+            message : error.message,
+            stack : ErrorStackParser.parse(error)
+          }
         }
-    });
+      });
+    }else{
+      process.send({
+          message : "END_TEST",
+          data : {
+              id : test.id,
+              state : test.state,
+              error : {
+                  message : error.message,
+                  stack : ErrorStackParser.parse(error)
+              }
+          }
+      });
+    }
 }
 
 export function done(data){

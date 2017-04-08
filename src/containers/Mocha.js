@@ -105,7 +105,7 @@ class Mocha extends PureComponent{
     renderResults(byId){
         const {result, entities, stats, action} = this.props;
         const {suites, tests} = entities;
-        const noTestsMessage = this.getNoTestsMessage(stats);
+        const noTestsMessage = this.getNoTestsMessage(entities);
         return (
             <div>
                 {noTestsMessage}
@@ -131,7 +131,9 @@ class Mocha extends PureComponent{
         if(!stats){
             return null;
         }
-        if(stats.tests !== 0 || stats.suites !== 0){
+        var suitesCount = Object.keys(stats.suites).length;
+        var testsCount = Object.keys(stats.tests).length;
+        if(testsCount !== 0 || suitesCount !== 0){
             return null;
         }
         return (

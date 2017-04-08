@@ -214,12 +214,47 @@ function attachStats(state, action){
     return state;
 }
 
+function updateSuiteWithError(state, type, id, title, error){
+  const suite = {...state.entities.suites[id]};
+  if(type === "BEFORE_EACH" || type === "BEFORE_ALL"){
+    suite.tests = [type + id, ...suite.tests];
+  } else {
+    suite.tests = [...suite.tests, type + id];
+  }
+
+  const suites = {...state.entities.suites};
+  suites[id] = suite;
+
+  const tests = {...state.entities.tests};
+  tests[type + id] = {
+    error : error,
+    id : type + id,
+    parent : id,
+    title : title,
+    status : "failed"
+  };
+
+  return {
+    ...state,
+    entities : {
+      suites : suites,
+      tests : tests
+    }
+  };
+}
+
 function handleError(state, action){
     if(action.type === Actions.ERROR){
         return {
             ...state,
             error : action.error
         }
+    }
+    if(action.type === Actions.EACH_HOOK_FAILED){
+      return updateSuiteWithError(state, action.hookType, action.suiteId, action.title, action.error);
+    }
+    if(action.type === Actions.HOOK_FAILED){
+      return updateSuiteWithError(state, action.hookType, action.suiteId, action.title, action.error);
     }
     return state;
 }

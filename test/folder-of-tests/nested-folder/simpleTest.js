@@ -1,4 +1,7 @@
 describe("A test 1", function(){
+    before(function(){
+      throw new Error("Fail");
+    });
     it("should pass", function(){
     });
     //

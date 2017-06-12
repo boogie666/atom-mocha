@@ -35,6 +35,7 @@ export function passTest(test){
     });
 }
 
+
 export function failTest(test, error){
     if(test.type === "hook"){
       //TODO find a better way to check hook type

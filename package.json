@@ -28,10 +28,10 @@
     "stack-utils": "^1.0.1"
   },
   "devDependencies": {
-    "chai": "^3.4.0",
+    "chai": "^4.1.2",
     "gulp": "^3.9.0",
-    "gulp-babel": "^5.2.1",
+    "gulp-babel": "^7.0.0",
     "gulp-concat": "^2.6.0",
-    "gulp-sourcemaps": "^1.6.0"
+    "gulp-sourcemaps": "^2.6.1"
   }
 }
